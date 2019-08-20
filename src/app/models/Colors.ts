@@ -1,4 +1,3 @@
-export class ColorOption {
+export class Color {
   color:string;
-  isSelected:boolean;
 }

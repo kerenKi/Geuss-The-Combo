@@ -1,16 +1,16 @@
 <div class="game">
   <span *ngFor="let circle of circles" class="circle" [style.background-color]="circle"></span>
-  <app-color-options></app-color-options>  
+  <app-color-options (sendColor)="setColor($event)"></app-color-options>  
   <div class="guesses">
-    <app-guess id="try1"></app-guess>
-    <app-guess id="try2"></app-guess>
-    <app-guess id="try3"></app-guess>
-    <app-guess id="try4"></app-guess>
-    <app-guess id="try5"></app-guess>
-    <app-guess id="try6"></app-guess>
-    <app-guess id="try7"></app-guess>
-    <app-guess id="try8"></app-guess>
-    <app-guess id="try9"></app-guess>
-    <app-guess id="try10"></app-guess>
+    <app-guess id="try1" [currentColor]="currentColor"></app-guess>
+    <app-guess id="try2" [currentColor]="currentColor"></app-guess>
+    <app-guess id="try3" [currentColor]="currentColor"></app-guess>
+    <app-guess id="try4" [currentColor]="currentColor"></app-guess>
+    <app-guess id="try5" [currentColor]="currentColor"></app-guess>
+    <app-guess id="try6" [currentColor]="currentColor"></app-guess>
+    <app-guess id="try7" [currentColor]="currentColor"></app-guess>
+    <app-guess id="try8" [currentColor]="currentColor"></app-guess>
+    <app-guess id="try9" [currentColor]="currentColor"></app-guess>
+    <app-guess id="try10" [currentColor]="currentColor"></app-guess>
   </div>
 </div>
