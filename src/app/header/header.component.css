@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap');
+
+.header {
+  background-color: rgba(40, 133, 102, 0.694);
+  color: rgb(245, 249, 238);
+  padding: 10px;
+  text-align: center;
+}
+
+.header a {
+  color: rgb(245, 249, 238);
+  padding: 5px;
+  text-decoration: none;
+  font-size: 18px;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+.header a:hover {
+  color: rgb(63, 64, 65);
+  background-color: rgba(33, 103, 79, 0.728);
+  border-radius: 2px;
+}
