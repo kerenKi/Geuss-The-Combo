@@ -3,10 +3,11 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { GameComponent } from './game/game.component';
-import { AboutComponent } from './about/about.component';
-import { InstructionsComponent } from './instructions/instructions.component';
-import { HeaderComponent } from './header/header.component';
+import { GameComponent } from '../components/game/game.component';
+import { AboutComponent } from '../components/layout/about/about.component';
+import { InstructionsComponent } from '../components/layout/instructions/instructions.component';
+import { HeaderComponent } from '../components/layout/header/header.component';
+import { ColoredCircleComponent } from './components/colored-circle/colored-circle.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { HeaderComponent } from './header/header.component';
     GameComponent,
     AboutComponent,
     InstructionsComponent,
-    HeaderComponent
+    HeaderComponent,
+    ColoredCircleComponent
   ],
   imports: [
     BrowserModule,
