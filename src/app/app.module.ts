@@ -8,6 +8,7 @@ import { AboutComponent } from '../components/layout/about/about.component';
 import { InstructionsComponent } from '../components/layout/instructions/instructions.component';
 import { HeaderComponent } from '../components/layout/header/header.component';
 import { GeussComponent } from '../components/geuss/geuss.component';
+import { FeedbackComponent } from '../components/feedback/feedback.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { GeussComponent } from '../components/geuss/geuss.component';
     AboutComponent,
     InstructionsComponent,
     HeaderComponent,
-    GeussComponent
+    GeussComponent,
+    FeedbackComponent
   ],
   imports: [
     BrowserModule,

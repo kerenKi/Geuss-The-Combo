@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GeussComponent implements OnInit {
 
-  constructor() { }
+  circles:string[] = ['gray','gray','gray','gray']
 
   ngOnInit() {
   }

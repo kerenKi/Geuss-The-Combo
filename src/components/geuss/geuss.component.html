@@ -1,1 +1,9 @@
-<p>geuss works!</p>
+<div class="try">
+    <app-feedback></app-feedback>
+    <button class="check" type="submit">Check it</button>
+    <div class="geuss">
+     <span *ngFor="let circle of circles" class="circle" [style.background-color]="circle"></span>
+    </div>
+
+</div>
+
