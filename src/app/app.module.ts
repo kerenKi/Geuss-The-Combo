@@ -7,7 +7,6 @@ import { GameComponent } from '../components/game/game.component';
 import { AboutComponent } from '../components/layout/about/about.component';
 import { InstructionsComponent } from '../components/layout/instructions/instructions.component';
 import { HeaderComponent } from '../components/layout/header/header.component';
-import { ColoredCircleComponent } from './components/colored-circle/colored-circle.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +15,6 @@ import { ColoredCircleComponent } from './components/colored-circle/colored-circ
     AboutComponent,
     InstructionsComponent,
     HeaderComponent,
-    ColoredCircleComponent
   ],
   imports: [
     BrowserModule,
