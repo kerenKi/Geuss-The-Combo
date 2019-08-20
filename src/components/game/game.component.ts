@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ColoredCircleComponent } from '../colored-circle/colored-circle.component'
+import { CodeMakerService } from '../../app/code-maker.service'
 
 @Component({
   selector: 'app-game',
@@ -8,9 +8,13 @@ import { ColoredCircleComponent } from '../colored-circle/colored-circle.compone
 })
 export class GameComponent implements OnInit {
 
-  circles: string[] = ['red','green', 'blue','yellow']
+  circles: string[];
 
+  constructor(service: CodeMakerService){
+    this.circles = service.generateCode()
+  }
   ngOnInit() {
+
   }
 
 }
