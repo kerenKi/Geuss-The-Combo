@@ -8,7 +8,7 @@ import { ColorOption } from '../../app/models/Colors'
 })
 export class ColorOptionsComponent implements OnInit {
 
-  circles: ColorOption[] = [
+  colorOptions: ColorOption[] = [
     {
       color:'red',
       isSelected: false
@@ -21,7 +21,7 @@ export class ColorOptionsComponent implements OnInit {
       isSelected: false
     },  {
       color:'blue',
-      isSelected: true
+      isSelected: false
     },  {
       color:'orange',
       isSelected: false
@@ -31,7 +31,11 @@ export class ColorOptionsComponent implements OnInit {
     }
   ]
 
-  ngOnInit() {
+  selectedColor:string = ''
+
+  pickColor(color){
+    const colorIndex = this.colorOptions.findIndex( colorOption => colorOption.color === color)
+    this.colorOptions[colorIndex].isSelected = true
   }
 
 }
