@@ -7,6 +7,7 @@ import { GameComponent } from '../components/game/game.component';
 import { AboutComponent } from '../components/layout/about/about.component';
 import { InstructionsComponent } from '../components/layout/instructions/instructions.component';
 import { HeaderComponent } from '../components/layout/header/header.component';
+import { GeussComponent } from '../components/geuss/geuss.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { HeaderComponent } from '../components/layout/header/header.component';
     AboutComponent,
     InstructionsComponent,
     HeaderComponent,
+    GeussComponent
   ],
   imports: [
     BrowserModule,

@@ -1,1 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans&display=swap');
+body {
+  padding: 10px;
+  margin: auto;
+  width: 50%;
+  text-align: center;
+  font-family: 'Noto Sans', sans-serif;
+  line-height: 1.8;
+}
+
+ a {
+  color:rgb(74, 116, 101);
+}
