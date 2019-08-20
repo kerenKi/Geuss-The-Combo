@@ -1,6 +1,3 @@
 <div class="game">
-  <span class="circle" style="background-color: red"></span>
-  <span class="circle" style="background-color: red"></span>
-  <span class="circle" style="background-color: red"></span>
-  <span class="circle" style="background-color: red"></span>
+  <span *ngFor="let circle of circles" class="circle" [style.background-color]="circle"></span>
 </div>

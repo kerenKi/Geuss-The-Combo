@@ -8,7 +8,7 @@ import { ColoredCircleComponent } from '../colored-circle/colored-circle.compone
 })
 export class GameComponent implements OnInit {
 
-  constructor() { }
+  circles: string[] = ['red','green', 'blue','yellow']
 
   ngOnInit() {
   }
