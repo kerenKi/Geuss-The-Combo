@@ -3,3 +3,6 @@
   background-color: rgba(38, 157, 115, 0.42);
   margin-top: 10px;
 }
+.selected{ 
+  border: 3px solid white;
+}
