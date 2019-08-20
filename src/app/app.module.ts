@@ -9,6 +9,7 @@ import { InstructionsComponent } from '../components/layout/instructions/instruc
 import { HeaderComponent } from '../components/layout/header/header.component';
 import { GeussComponent } from '../components/geuss/geuss.component';
 import { FeedbackComponent } from '../components/feedback/feedback.component';
+import { ColorOptionsComponent } from '../components/color-options/color-options.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FeedbackComponent } from '../components/feedback/feedback.component';
     InstructionsComponent,
     HeaderComponent,
     GeussComponent,
-    FeedbackComponent
+    FeedbackComponent,
+    ColorOptionsComponent
   ],
   imports: [
     BrowserModule,
