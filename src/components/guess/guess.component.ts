@@ -8,12 +8,12 @@ import { Color } from '../../app/models/Colors'
 })
 export class GuessComponent implements OnInit {
   @Input() currentColor:Color
-  circles:string[] = ['gray','gray','gray','gray']
+  circles:Color[] = [Color.Gray, Color.Gray, Color.Gray, Color.Gray]
 
   ngOnInit() {
-    this.currentColor = { color: 'gray' }
+    this.currentColor = Color.Gray
   }
   changeColor(index){
-    this.circles[index] = this.currentColor.color
+    this.circles[index] = this.currentColor
   }
 }

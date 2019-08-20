@@ -9,30 +9,18 @@ import { Color } from '../../app/models/Colors'
 export class ColorOptionsComponent {
   @Output() sendColor: EventEmitter<Color> = new EventEmitter()
   colorOptions: Color[] = [
-    {
-      color:'red',
-    },
-    {
-      color:'yellow',
-    },  
-    {
-      color:'green',
-    },  
-    {
-      color:'blue',
-    },  
-    {
-      color:'orange',
-    },  
-    {
-      color:'purple',
-    }
+    Color.Red, 
+    Color.Blue,
+    Color.Green,
+    Color.Purple,
+    Color.Yellow,
+    Color.Orange  
   ]
-  selectedColor:Color = {color:''}
+  selectedColor:Color;
 
-  pickColor(color:string){
-    const colorIndex = this.colorOptions.findIndex( colorOption => colorOption.color === color)
-    this.selectedColor = {color: this.colorOptions[colorIndex].color}
+  pickColor(color:Color) {
+    const colorIndex = this.colorOptions.findIndex( colorOption => colorOption === color)
+    this.selectedColor = this.colorOptions[colorIndex]
     this.sendColor.emit(this.selectedColor)
   }
 

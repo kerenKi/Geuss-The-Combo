@@ -1,5 +1,5 @@
 <div class="color-options">
     <span *ngFor="let circle of colorOptions" 
-      class="circle" [ngClass]="(circle.color === selectedColor.color) ?'selected':''" 
-      [style.background-color]="circle.color" (click)="pickColor(circle.color)"></span>
+      class="circle" [ngClass]="(circle === selectedColor) ?'selected':''" 
+      [style.background-color]="circle" (click)="pickColor(circle)"></span>
 </div>
