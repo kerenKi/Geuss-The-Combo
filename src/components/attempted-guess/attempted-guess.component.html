@@ -1,7 +1,7 @@
 <div class="attemptedGuess">
     <app-feedback [feedbackColors]="feedbackColors"></app-feedback>
     <div class="guess">
-        <span *ngFor="let circle of circles; let i=index" 
+        <span *ngFor="let circle of circles" 
            class="circle" 
            [style.background-color]="circle"
         ></span>
