@@ -1,1 +1,12 @@
-<p>active-guess works!</p>
+<div class="try">
+    <app-feedback [feedbackColors]="feedbackColors"></app-feedback>
+    <button class="check" type="submit" (click)="onSubmit()">Check it</button>
+    <div class="guess">
+     <span *ngFor="let circle of circles; let i=index" 
+        class="circle" 
+        [style.background-color]="circle"
+        (click)="changeColor(i)"></span>
+    </div>
+</div>
+
+

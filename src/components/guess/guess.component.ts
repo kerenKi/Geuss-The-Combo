@@ -10,7 +10,6 @@ import { CodeMakerService } from '../../app/code-maker.service'
 export class GuessComponent implements OnInit {
   @Input() currentColor: Color
   @Input() winningCode: Color[]
-  
 
   circles:Color[] = [Color.Gray, Color.Gray, Color.Gray, Color.Gray]
   feedbackColors: Color[] = []
