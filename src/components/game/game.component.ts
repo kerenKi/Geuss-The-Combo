@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CodeMakerService } from '../../app/code-maker.service'
 import { Color } from '../../app/models/Colors'
+import { Guesses } from '../../app/models/Guesses'
 
 
 @Component({
@@ -15,7 +16,15 @@ export class GameComponent implements OnInit {
   winningCode: Color[];
   currentColor: Color; 
   remainningGuesses: number[] = [10,9,8,7,6,5,4,3,2]
-  attemptedGuesses = []
+  attemptedGuesses: Guesses[] = [{
+    colors:[ Color.Blue, Color.Blue,Color.Green,Color.Red],
+    feedback: [ Color.Hit, Color.CorrectColor, Color.CorrectColor, Color.Miss]
+  },
+  {
+    colors:[ Color.Red, Color.Blue,Color.Green,Color.Red],
+    feedback: [ Color.Miss, Color.Hit, Color.CorrectColor, Color.Miss]
+  }
+]
 
   
   getWinningCode(): void {
