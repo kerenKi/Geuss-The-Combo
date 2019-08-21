@@ -23,6 +23,12 @@ export class GuessComponent implements OnInit {
   changeColor(index){
     this.circles[index] = this.currentColor
   }
+  calculateWinner(){
+   const hitsArray:Color[] = this.feedbackColors.filter( color => color === Color.Hit)
+   if (hitsArray.length === 4){
+     alert('You won!')
+   }
+  }
   onSubmit(){
     const codeToCheck: Color[] = this.circles
     let compareWinning = this.winningCode.map( (dot: Color, index: number) => {
@@ -71,6 +77,11 @@ export class GuessComponent implements OnInit {
       default:
         this.feedbackColors = [... this.feedbackColors]             
     }
+    
+    if(this.feedbackColors === []) {
+
+    }
+    this.calculateWinner()
     return this.feedbackColors
     
   }
