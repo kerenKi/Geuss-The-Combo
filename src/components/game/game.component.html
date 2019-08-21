@@ -3,14 +3,9 @@
   <app-color-options (sendColor)="setColor($event)"></app-color-options>  
   <div class="guesses">
     <app-guess id="try1" [currentColor]="currentColor" [winningCode]="winningCode"></app-guess>
-    <app-guess id="try2" [currentColor]="currentColor"></app-guess>
-    <app-guess id="try3" [currentColor]="currentColor"></app-guess>
-    <app-guess id="try4" [currentColor]="currentColor"></app-guess>
-    <app-guess id="try5" [currentColor]="currentColor"></app-guess>
-    <app-guess id="try6" [currentColor]="currentColor"></app-guess>
-    <app-guess id="try7" [currentColor]="currentColor"></app-guess>
-    <app-guess id="try8" [currentColor]="currentColor"></app-guess>
-    <app-guess id="try9" [currentColor]="currentColor"></app-guess>
-    <app-guess id="try10" [currentColor]="currentColor"></app-guess>
+    <span *ngFor="let guess of remainningGuesses">
+      <app-remain-guesses></app-remain-guesses>    
+    </span>
+ 
   </div>
 </div>
