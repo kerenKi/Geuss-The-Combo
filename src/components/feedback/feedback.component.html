@@ -1,3 +1,8 @@
 <div class="feedbackDots">
-    <span *ngFor="let dot of dots" class="dot" [style.background-color]="dot"></span>
+  <div class="grays" *ngIf="!feedbackColors[0]">
+    <span  *ngFor="let dot of dots" class="dot" [style.background-color]="dot"></span>
   </div>
+  <div  class="colors" *ngIf="feedbackColors[0]">
+      <span  *ngFor="let feedbackColor of feedbackColors" class="dot colored" [style.background-color]="feedbackColor"></span>
+  </div>
+</div>

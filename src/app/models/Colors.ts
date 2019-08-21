@@ -6,7 +6,7 @@ export enum Color {
   Orange = "coral",
   Purple = "darkorchid",
   Gray = "gray",
-  CorrectColor = "dimgray",
+  CorrectColor = "darkorange",
   Hit = "limegreen",
   Miss = "seashell"
 }

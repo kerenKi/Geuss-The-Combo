@@ -1,7 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input,  } from '@angular/core';
 import { Color } from '../../app/models/Colors'
 import { CodeMakerService } from '../../app/code-maker.service'
-import { FeedbackColors } from '../../app/models/FeedbackColors'
 
 @Component({
   selector: 'app-guess',
@@ -11,6 +10,8 @@ import { FeedbackColors } from '../../app/models/FeedbackColors'
 export class GuessComponent implements OnInit {
   @Input() currentColor: Color
   @Input() winningCode: Color[]
+  
+
   circles:Color[] = [Color.Gray, Color.Gray, Color.Gray, Color.Gray]
   feedbackColors: Color[] = []
 
@@ -70,7 +71,6 @@ export class GuessComponent implements OnInit {
       default:
         this.feedbackColors = [... this.feedbackColors]             
     }
-console.log(this.feedbackColors)
     return this.feedbackColors
     
   }

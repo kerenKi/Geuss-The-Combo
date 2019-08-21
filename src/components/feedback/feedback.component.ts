@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Color } from '../../app/models/Colors'
 
 @Component({
   selector: 'app-feedback',
@@ -6,7 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./feedback.component.css']
 })
 export class FeedbackComponent implements OnInit {
+  @Input() feedbackColors: Color[]
   dots:string[]= ['gray','gray','gray','gray'];
+  title:string = 'test'
   
   ngOnInit() {
   }
