@@ -1,12 +1,11 @@
 <div class="try">
     <app-feedback></app-feedback>
-    <button class="check" type="submit">Check it</button>
+    <button class="check" type="submit" (click)="onSubmit()">Check it</button>
     <div class="guess">
      <span *ngFor="let circle of circles; let i=index" 
         class="circle" 
         [style.background-color]="circle"
         (click)="changeColor(i)"></span>
     </div>
-
 </div>
 

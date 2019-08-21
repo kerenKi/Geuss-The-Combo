@@ -16,6 +16,7 @@ export class ColorOptionsComponent {
     Color.Yellow,
     Color.Orange  
   ]
+  
   selectedColor:Color;
 
   pickColor(color:Color) {

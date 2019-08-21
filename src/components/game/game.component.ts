@@ -9,15 +9,19 @@ import { Color } from '../../app/models/Colors'
   styleUrls: ['./game.component.css']
 })
 export class GameComponent implements OnInit {
+  
+  constructor(private service: CodeMakerService) { }
 
-  circles: string[];
+  winningCode: Color[];
   currentColor: Color; 
 
-  constructor(service: CodeMakerService){
-    this.circles = service.generateCode()
+  
+  getWinningCode(): void {
+    this.winningCode = this.service.generateCode()
   }
+  
   ngOnInit() {
-
+    this.getWinningCode()
   }
   setColor(color:Color){
     this.currentColor = color

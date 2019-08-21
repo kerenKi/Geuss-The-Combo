@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Color } from './models/Colors'
 
 @Injectable({
   providedIn: 'root'
@@ -8,8 +9,13 @@ export class CodeMakerService {
     return Math.floor(Math.random() * 6)
   }
   generateCode(){
-    const colors: string[] = ['red','yellow','green','blue','orange','purple'] 
+    const colors: Color[] = [Color.Red, Color.Yellow, Color.Green, Color.Blue, Color.Orange, Color.Purple] 
     const winningCode = [colors[this.randomNumber()],colors[this.randomNumber()],colors[this.randomNumber()],colors[this.randomNumber()]] 
     return winningCode
+  }
+
+  calculateFeedback(winningCode, guessCode){
+    console.log(winningCode)
+    console.log(guessCode)
   }
 }
