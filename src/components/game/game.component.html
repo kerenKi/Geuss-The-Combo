@@ -4,12 +4,12 @@
   <app-color-options (sendColor)="setColor($event)"></app-color-options>  
   
   <div class="guesses">
-      <span *ngFor="let guess of attemptedGuesses">
-        <app-attempted-guess [circles]="guess.colors" [feedbackColors]="guess.feedback"></app-attempted-guess>
-      </span>
-
-    <app-active-guess [currentColor]="currentColor" [winningCode]="winningCode"></app-active-guess>  
-    
+    <span *ngFor="let guess of attemptedGuesses">
+      <app-attempted-guess [circles]="guess.colors" [feedbackColors]="guess.feedback"></app-attempted-guess>
+    </span>
+    <div *ngIf="attemptedGuesses.length !== 10">
+      <app-active-guess [currentColor]="currentColor" [winningCode]="winningCode" (sendGuess)="setGuess($event)"></app-active-guess>  
+    </div>
     <span *ngFor="let guess of remainningGuesses">
       <app-remain-guesses></app-remain-guesses>    
     </span>

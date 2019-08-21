@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Color } from '../../app/models/Colors'
+import { Guesses } from '../../app/models/Guesses'
 import { CodeMakerService } from '../../app/code-maker.service'
 
 @Component({
@@ -10,6 +11,7 @@ import { CodeMakerService } from '../../app/code-maker.service'
 export class ActiveGuessComponent implements OnInit {
   @Input() currentColor: Color
   @Input() winningCode: Color[]
+  @Output() sendGuess: EventEmitter<Guesses> = new EventEmitter()
 
   circles:Color[] = [Color.Gray, Color.Gray, Color.Gray, Color.Gray]
   feedbackColors: Color[] = []
@@ -85,6 +87,12 @@ export class ActiveGuessComponent implements OnInit {
   onSubmit(){
     this.calculateFeedback()
     this.calculateWinner()
+    this.sendGuess.emit({
+      colors: this.circles, 
+      feedback: this.feedbackColors
+    })
+    this.circles = [Color.Gray, Color.Gray, Color.Gray, Color.Gray]
+    this.feedbackColors = []
   }
 
   

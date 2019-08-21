@@ -16,15 +16,7 @@ export class GameComponent implements OnInit {
   winningCode: Color[];
   currentColor: Color; 
   remainningGuesses: number[] = [10,9,8,7,6,5,4,3,2]
-  attemptedGuesses: Guesses[] = [{
-    colors:[ Color.Blue, Color.Blue,Color.Green,Color.Red],
-    feedback: [ Color.Hit, Color.CorrectColor, Color.CorrectColor, Color.Miss]
-  },
-  {
-    colors:[ Color.Red, Color.Blue,Color.Green,Color.Red],
-    feedback: [ Color.Miss, Color.Hit, Color.CorrectColor, Color.Miss]
-  }
-]
+  attemptedGuesses: Guesses[] = []
 
   
   getWinningCode(): void {
@@ -34,7 +26,16 @@ export class GameComponent implements OnInit {
   ngOnInit() {
     this.getWinningCode()
   }
+
   setColor(color:Color){
     this.currentColor = color
+  }
+
+  setGuess(guesses:Guesses){
+    this.attemptedGuesses.push(guesses)
+    this.remainningGuesses.shift()
+    if(this.attemptedGuesses.length === 10) {
+      alert('You lose!')
+    }
   }
 }

@@ -1,3 +1,7 @@
+.try{
+  background-color: #1a6c4f8e;
+  padding: 3px;
+}
 .check {
   display: flex;
   float: right;
@@ -11,6 +15,9 @@
   transition:800ms ease all;
   outline:none;
   margin-top: 10px;
+  -webkit-box-shadow: inset -2px 0px 11px 0px rgba(242,242,242,0.5);
+  -moz-box-shadow: inset -2px 0px 11px 0px rgba(242,242,242,0.5);
+  box-shadow: inset -2px 0px 11px 0px rgba(242,242,242,0.5);
 }
 
 .check:hover {
