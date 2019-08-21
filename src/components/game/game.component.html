@@ -1,5 +1,4 @@
 <div class="game">
-  <span *ngFor="let circle of winningCode" class="circle" [style.background-color]="circle"></span>
  
   <app-color-options (sendColor)="setColor($event)"></app-color-options>  
   

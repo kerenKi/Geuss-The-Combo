@@ -77,16 +77,10 @@ export class ActiveGuessComponent implements OnInit {
     return this.feedbackColors
   }
 
-  calculateWinner() {
-    const hitsArray:Color[] = this.feedbackColors.filter( color => color === Color.Hit)
-    if(hitsArray.length === 4){
-      alert('You win!')
-    }
-  }
+  
 
   onSubmit(){
     this.calculateFeedback()
-    this.calculateWinner()
     this.sendGuess.emit({
       colors: this.circles, 
       feedback: this.feedbackColors

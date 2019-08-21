@@ -31,11 +31,32 @@ export class GameComponent implements OnInit {
     this.currentColor = color
   }
 
+  startNewGame(){
+    this.getWinningCode()
+    this.remainningGuesses = [10,9,8,7,6,5,4,3,2]
+    this.attemptedGuesses = []
+  }
+
+  calculateWinner(feedbackColors) {
+    const hitsArray:Color[] = feedbackColors.filter( color => color === Color.Hit)
+    if(hitsArray.length === 4){
+      alert('You win!')
+      this.startNewGame()
+      return true
+    } 
+    return false
+  }
+
   setGuess(guesses:Guesses){
-    this.attemptedGuesses.push(guesses)
-    this.remainningGuesses.shift()
+    const win = this.calculateWinner(guesses.feedback)
+    if(!win){
+      this.attemptedGuesses.push(guesses)
+      this.remainningGuesses.shift()
+    }
     if(this.attemptedGuesses.length === 10) {
       alert('You lose!')
+      this.startNewGame()
     }
   }
+
 }
