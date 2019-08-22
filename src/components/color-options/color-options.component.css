@@ -1,10 +1,9 @@
-.color-options {
-  background-color: rgba(38, 157, 115, 0.42);
-  margin-top: 10px;
-  -webkit-box-shadow: -1px 1px 11px 4px rgba(15,15,15,0.43);
-  -moz-box-shadow: -1px 1px 11px 4px rgba(15,15,15,0.43);
-  box-shadow: -1px 1px 11px 4px rgba(15,15,15,0.43);
-}
+
 .selected{ 
   border: 3px solid white;
+}
+
+#attempts-left {
+  font-size: 20px;
+  font-weight: 700;
 }
