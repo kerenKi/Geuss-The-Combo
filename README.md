@@ -1,12 +1,37 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/f30ae044-ab11-4e51-9307-fcf1db24fb52/deploy-status)](https://app.netlify.com/sites/guess-the-combo/deploys)
 # Guess The Combo
 
-## checkout the deployed version [HERE](https://guess-the-combo.netlify.com/)
+## :point_right: [checkout the deployed version here](https://guess-the-combo.netlify.com/) :point_left:
 
 ![](src/assets/playGame.gif)
 
+### What is this project all about
 
+This is my first Angular project. 
+It is a game of mastermind (also known as code breaker).
+The goal of this project is to get familiar with angular as a single-page-applicaton framework
 
+## Screenshots
+
+#### About page
+
+![About page](https://github.com/kerenKi/Geuss-The-Combo/blob/master/src/assets/about_screenshot.png)
+
+#### Instructions page
+
+![Instructions page](https://github.com/kerenKi/Geuss-The-Combo/blob/master/src/assets/Instructions_screenshot.png)
+
+#### Play game page
+
+![Play game page](https://github.com/kerenKi/Geuss-The-Combo/blob/master/src/assets/playGame_screenshot.png)
+
+#### winning annoannouncement
+
+![winning annoannouncement](https://github.com/kerenKi/Geuss-The-Combo/blob/master/src/assets/winning_screenshot.png)
+
+#### losing announcement
+
+![losing annoannouncement](https://github.com/kerenKi/Geuss-The-Combo/blob/master/src/assets/lossing_screenshot.png)
 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.2.
