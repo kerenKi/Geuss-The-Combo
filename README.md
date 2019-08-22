@@ -1,6 +1,13 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/f30ae044-ab11-4e51-9307-fcf1db24fb52/deploy-status)](https://app.netlify.com/sites/guess-the-combo/deploys)
-# GuessTheCombo
+# Guess The Combo
+
 ## checkout the deployed version [HERE](https://guess-the-combo.netlify.com/)
+
+![](src/assets/playGame.gif)
+
+
+
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.2.
 
@@ -23,7 +30,3 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 ## Running end-to-end tests
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
