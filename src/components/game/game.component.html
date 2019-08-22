@@ -1,5 +1,8 @@
 <div class="game">
- 
+  <span *ngFor="let circle of winningCode" class="circle" [style.background-color]="circle"></span>
+
+  <button (click)="popAlert()">try me</button>
+  
   <app-color-options (sendColor)="setColor($event)"></app-color-options>  
   
   <div class="guesses">

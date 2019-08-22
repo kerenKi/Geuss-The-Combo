@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -7,7 +8,6 @@ import { GameComponent } from '../components/game/game.component';
 import { AboutComponent } from '../components/layout/about/about.component';
 import { InstructionsComponent } from '../components/layout/instructions/instructions.component';
 import { HeaderComponent } from '../components/layout/header/header.component';
-import { GuessComponent } from '../components/guess/guess.component';
 import { FeedbackComponent } from '../components/feedback/feedback.component';
 import { ColorOptionsComponent } from '../components/color-options/color-options.component';
 import { AttemptedGuessComponent } from '../components/attempted-guess/attempted-guess.component';
@@ -21,7 +21,6 @@ import { RemainGuessesComponent } from '../components/remain-guesses/remain-gues
     AboutComponent,
     InstructionsComponent,
     HeaderComponent,
-    GuessComponent,
     FeedbackComponent,
     ColorOptionsComponent,
     AttemptedGuessComponent,
@@ -30,7 +29,13 @@ import { RemainGuessesComponent } from '../components/remain-guesses/remain-gues
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SweetAlert2Module.forRoot({
+        buttonsStyling: false,
+        customClass: 'modal-content',
+        confirmButtonClass: 'btn btn-primary',
+        cancelButtonClass: 'btn'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

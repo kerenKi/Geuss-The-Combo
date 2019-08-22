@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CodeMakerService } from '../../app/code-maker.service'
 import { Color } from '../../app/models/Colors'
 import { Guesses } from '../../app/models/Guesses'
+import Swal from 'sweetalert2'
+
 
 
 @Component({
@@ -12,12 +14,25 @@ import { Guesses } from '../../app/models/Guesses'
 export class GameComponent implements OnInit {
   
   constructor(private service: CodeMakerService) { }
-
   winningCode: Color[];
   currentColor: Color; 
   remainningGuesses: number[] = [10,9,8,7,6,5,4,3,2]
   attemptedGuesses: Guesses[] = []
-
+  
+  popAlert() {
+    console.log('hi')
+    Swal.fire({
+      title:'Congratulatios! You guessed the combo!',
+      html:
+        ` <div style="width:100%;height:0;padding-bottom:56%;position:relative;">
+            <iframe src="https://giphy.com/embed/l0IygWpszunxnkMAo" width="80%" height="100%" style="position:absolute;right:40px;" frameBorder="0"></iframe>
+          </div>
+        `,
+    showCloseButton: true,
+    focusConfirm: false,
+    confirmButtonText:'Play again',
+    })
+  }
   
   getWinningCode(): void {
     this.winningCode = this.service.generateCode()
@@ -40,7 +55,17 @@ export class GameComponent implements OnInit {
   calculateWinner(feedbackColors) {
     const hitsArray:Color[] = feedbackColors.filter( color => color === Color.Hit)
     if(hitsArray.length === 4){
-      alert('You win!')
+      Swal.fire({
+        title:'Congratulatios! You guessed the combo!',
+        html:
+          ` <div style="width:100%;height:0;padding-bottom:56%;position:relative;">
+              <iframe src="https://giphy.com/embed/l0IygWpszunxnkMAo" width="80%" height="100%" style="position:absolute;right:40px;" frameBorder="0"></iframe>
+            </div>
+          `,
+      showCloseButton: true,
+      focusConfirm: false,
+      confirmButtonText:'Play again',
+      })
       this.startNewGame()
       return true
     } 
