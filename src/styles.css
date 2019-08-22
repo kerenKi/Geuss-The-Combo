@@ -10,10 +10,11 @@ body {
 .guesses {
   padding: 10px;
   margin: auto;
-  margin-top: 20px;
   max-width: 50%; 
 }
-
+.guesses{
+  margin-top: 20px;
+}
 .color-options {
   width: 230px;
   height: 300px;
@@ -39,3 +40,4 @@ a {
   width: 50%;
   margin: 5px;
 }
+

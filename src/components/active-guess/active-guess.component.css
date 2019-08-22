@@ -1,28 +1,43 @@
 .try{
   background-color: #1a6c4f8e;
-  padding: 3px;
+  padding: 5px;
+  width: 101.7%;
+  position: relative;
+  right: 10px;
 }
 .check {
   display: flex;
   float: right;
-  width: 80px;
-  height: 50px;
-  background:#1AAB8A;
-  color:#fff;
-  border:none;
-  padding:0 2em;
-  cursor:pointer;
-  transition:800ms ease all;
-  outline:none;
+  width: 110px;
+  height: 60px;
   margin-top: 10px;
-  -webkit-box-shadow: inset -2px 0px 11px 0px rgba(242,242,242,0.5);
-  -moz-box-shadow: inset -2px 0px 11px 0px rgba(242,242,242,0.5);
-  box-shadow: inset -2px 0px 11px 0px rgba(242,242,242,0.5);
+  text-align: center;
+  position: relative;
+  left: 15px;
+  --offset: 10px;
+  --border-size: 2px;
+  padding: 1.5em 3em ;
+	appearance: none;
+	border: 0;
+	background: transparent;
+  color: #ede3e3;
+  letter-spacing: .25em;
+	outline: none;
+	cursor: pointer;
+	border-radius: 5px;
+	box-shadow: inset 0 0 0 var(--border-size) currentcolor;
+  transition: background .8s ease;
 }
 
 .check:hover {
-    background:#fff;
-    color:#1AAB8A;
-    border: 1px solid #1AAB8A;
+    background:#ede3e3;
+    color:rgba(5, 60, 47, 0.803);
+    border: 1px solid rgb(7, 69, 54);
     transition:800ms ease all;
+	  font-weight: bold;
 }
+
+
+	
+		
+ 

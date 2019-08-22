@@ -1,6 +1,8 @@
 .guesses {
   border: 2px solid #1e1f1e;
   background-color: rgba(38, 157, 115, 0.42);
-  box-shadow: 3px 6px 3px 6px #1e1f1e51;
+  -webkit-box-shadow: 7px 5px 11px 4px rgba(15,15,15,0.43);
+  -moz-box-shadow: 7px 5px 11px 4px rgba(15,15,15,0.43);
+  box-shadow: 7px 5px 11px 4px rgba(15,15,15,0.43);
 }
 
