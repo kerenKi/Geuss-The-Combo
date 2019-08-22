@@ -2,6 +2,7 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Color } from '../../app/models/Colors'
 import { Guesses } from '../../app/models/Guesses'
 import { CodeMakerService } from '../../app/code-maker.service'
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-active-guess',
@@ -20,10 +21,30 @@ export class ActiveGuessComponent implements OnInit {
 
   ngOnInit() {
     this.currentColor = Color.Gray
+    
   }
 
   changeColor(index) {
     this.circles[index] = this.currentColor
+  }
+
+  validateGuess(){
+    const filteredCircles:Color[] = this.circles.filter( circle => circle !== Color.Gray)
+    if (filteredCircles.length === 4){
+      return true
+    } else {
+      Swal.fire({
+        position: 'top-end',
+        type: 'error',
+        title: 'Oops...',
+        text: 'You need to fill in all 4 spots',
+        animation: false,
+        customClass: {
+          popup: 'animated bounceInDown'
+        }
+      })
+    }
+
   }
 
   calculateFeedback() {
@@ -80,13 +101,16 @@ export class ActiveGuessComponent implements OnInit {
   
 
   onSubmit(){
-    this.calculateFeedback()
-    this.sendGuess.emit({
-      colors: this.circles, 
-      feedback: this.feedbackColors
-    })
-    this.circles = [Color.Gray, Color.Gray, Color.Gray, Color.Gray]
-    this.feedbackColors = []
+    if(this.validateGuess()){
+      this.calculateFeedback()
+      this.sendGuess.emit({
+        colors: this.circles, 
+        feedback: this.feedbackColors
+      })
+      this.circles = [Color.Gray, Color.Gray, Color.Gray, Color.Gray]
+      this.feedbackColors = []
+    } 
+    
   }
 
   
