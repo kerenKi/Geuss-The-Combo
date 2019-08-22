@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output, Input } from '@angular/core';
 import { Color } from '../../app/models/Colors'
 
 @Component({
@@ -7,6 +7,7 @@ import { Color } from '../../app/models/Colors'
   styleUrls: ['./color-options.component.css']
 })
 export class ColorOptionsComponent {
+  @Input() attemptedGuesses:number
   @Output() sendColor: EventEmitter<Color> = new EventEmitter()
   colorOptions: Color[] = [
     Color.Red, 

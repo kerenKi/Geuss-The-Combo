@@ -1,6 +1,6 @@
 <div class="game">
   
-  <app-color-options (sendColor)="setColor($event)"></app-color-options>  
+  <app-color-options (sendColor)="setColor($event)" [attemptedGuesses]="attemptedGuesses.length"></app-color-options>  
   
   <div class="guesses">
     <span *ngFor="let guess of attemptedGuesses">
