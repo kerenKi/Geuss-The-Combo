@@ -26,6 +26,10 @@ export class ActiveGuessComponent implements OnInit {
     this.circles[index] = this.currentColor
   }
 
+  validateGuess(){
+
+  }
+
   calculateFeedback() {
     const codeToCheck: Color[] = this.circles
     let compareWinning = this.winningCode.map( (dot: Color, index: number) => {
@@ -80,6 +84,7 @@ export class ActiveGuessComponent implements OnInit {
   
 
   onSubmit(){
+    this.validateGuess()
     this.calculateFeedback()
     this.sendGuess.emit({
       colors: this.circles, 
