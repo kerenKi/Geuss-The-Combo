@@ -1,14 +1,27 @@
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans&display=swap');
+
 body {
-  padding: 10px;
-  margin: auto;
-  max-width: 50%;
   text-align: center;
   font-family: 'Noto Sans', sans-serif;
   line-height: 1.8;
 }
 
- a {
+.instructions,
+.guesses {
+  padding: 10px;
+  margin: auto;
+  margin-top: 20px;
+  max-width: 50%; 
+}
+
+.color-options {
+  width: 230px;
+  height: 300px;
+  position: fixed;
+  left:40px;
+}
+
+a {
   color:rgb(74, 116, 101);
 }
 
