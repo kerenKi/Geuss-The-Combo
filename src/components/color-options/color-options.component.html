@@ -1,6 +1,6 @@
 <div class="color-options">
   <p id="attempts-left">Attempts left: {{ 10 - attemptedGuesses }}</p>
-  <p>Click on a color <br> Then click on the place you want it to be:</p>
+  <p id="start-instructions">Click on a color <br> Then click on the place you want it to be:</p>
     <span *ngFor="let circle of colorOptions" 
       class="circle" [ngClass]="(circle === selectedColor) ?'selected':''" 
       [style.background-color]="circle" (click)="pickColor(circle)"></span>
