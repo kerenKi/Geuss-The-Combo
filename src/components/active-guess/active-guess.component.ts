@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Color } from '../../app/models/Colors'
 import { Guesses } from '../../app/models/Guesses'
+import { Dot } from '../../app/models/Dot'
 import { CodeMakerService } from '../../app/code-maker.service'
 import Swal from 'sweetalert2'
 
@@ -19,16 +20,16 @@ export class ActiveGuessComponent implements OnInit {
 
   constructor(private service: CodeMakerService) { }
 
-  ngOnInit() {
+  ngOnInit():void {
     this.currentColor = Color.Gray
     
   }
 
-  changeColor(index) {
+  changeColor(index:number) {
     this.circles[index] = this.currentColor
   }
 
-  validateGuess(){
+  validateGuess():boolean {
     const filteredCircles:Color[] = this.circles.filter( circle => circle !== Color.Gray)
     if (filteredCircles.length === 4){
       return true
@@ -43,13 +44,14 @@ export class ActiveGuessComponent implements OnInit {
           popup: 'animated bounceInDown'
         }
       })
+      return false
     }
 
   }
 
-  calculateFeedback() {
+  calculateFeedback() :Color[] {
     const codeToCheck: Color[] = this.circles
-    let compareWinning = this.winningCode.map( (dot: Color, index: number) => {
+    let compareWinning = this.winningCode.map( (dot: Color, index: number):Dot => {
       let newDot = {
         color: dot,
         index: index,
@@ -59,7 +61,7 @@ export class ActiveGuessComponent implements OnInit {
       return newDot
     }) 
     //check for hits: correct color and place
-    codeToCheck.map((color:Color, index:number) => {
+    codeToCheck.map((color:Color, index:number) :void => {
       if( color === compareWinning[index].color) {
         this.feedbackColors =[... this.feedbackColors, Color.Hit]
         compareWinning[index].hit = true
@@ -67,7 +69,7 @@ export class ActiveGuessComponent implements OnInit {
     })
 
     //check for correct color wrong place
-    codeToCheck.map((color:Color, index:number) => {
+    codeToCheck.map((color:Color, index:number) :void => {
       if (color !== compareWinning[index].color) {
         const correctColorIndex = compareWinning.findIndex( dot => dot.color === color && dot.index !== index && !dot.hit &&!dot.correctColor)
 
@@ -100,8 +102,8 @@ export class ActiveGuessComponent implements OnInit {
 
   
 
-  onSubmit(){
-    if(this.validateGuess()){
+  onSubmit():void {
+    if(this.validateGuess()) {
       this.calculateFeedback()
       this.sendGuess.emit({
         colors: this.circles, 
@@ -110,9 +112,6 @@ export class ActiveGuessComponent implements OnInit {
       this.circles = [Color.Gray, Color.Gray, Color.Gray, Color.Gray]
       this.feedbackColors = []
     } 
-    
   }
-
-  
 
 }

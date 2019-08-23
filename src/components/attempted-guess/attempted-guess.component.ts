@@ -8,6 +8,6 @@ import { Color } from '../../app/models/Colors'
   styleUrls: ['./attempted-guess.component.css']
 })
 export class AttemptedGuessComponent {
- @Input() circles:Color[] 
- @Input() feedbackColors: Color[] 
+  @Input() circles:Color[] 
+  @Input() feedbackColors: Color[] 
 }
