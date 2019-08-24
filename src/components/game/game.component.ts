@@ -11,13 +11,13 @@ import Swal from 'sweetalert2'
 })
 
 export class GameComponent implements OnInit {
+
+  constructor(private service: CodeMakerService) { }
   
   winningCode: Color[];
   currentColor: Color; 
   remainningGuesses: number[] = [10,9,8,7,6,5,4,3,2]
   attemptedGuesses: Guesses[] = []
-
-  constructor(private service: CodeMakerService) { }
   
   getWinningCode() :void {
     this.winningCode = this.service.generateCode()
