@@ -4,40 +4,40 @@ import { Color } from '../../app/models/Colors'
 import { Guesses } from '../../app/models/Guesses'
 import Swal from 'sweetalert2'
 
-
-
 @Component({
   selector: 'app-game',
   templateUrl: './game.component.html',
   styleUrls: ['./game.component.css']
 })
+
 export class GameComponent implements OnInit {
-  
+
   constructor(private service: CodeMakerService) { }
+  
   winningCode: Color[];
   currentColor: Color; 
   remainningGuesses: number[] = [10,9,8,7,6,5,4,3,2]
   attemptedGuesses: Guesses[] = []
   
-  getWinningCode(): void {
+  getWinningCode() :void {
     this.winningCode = this.service.generateCode()
   }
   
-  ngOnInit() {
+  ngOnInit() :void {
     this.getWinningCode()
   }
 
-  setColor(color:Color){
+  setColor(color:Color) :void {
     this.currentColor = color
   }
 
-  startNewGame(){
+  startNewGame() :void {
     this.getWinningCode()
     this.remainningGuesses = [10,9,8,7,6,5,4,3,2]
     this.attemptedGuesses = []
   }
 
-  calculateWinner(feedbackColors) {
+  calculateWinner(feedbackColors:Color[]) :boolean {
     const hitsArray:Color[] = feedbackColors.filter( color => color === Color.Hit)
     if(hitsArray.length === 4){
       Swal.fire({
@@ -57,9 +57,9 @@ export class GameComponent implements OnInit {
     return false
   }
 
-  setGuess(guesses:Guesses){
+  setGuess(guesses:Guesses) :void {
     const win = this.calculateWinner(guesses.feedback)
-    if(!win){
+    if(!win) {
       this.attemptedGuesses.push(guesses)
       this.remainningGuesses.shift()
     }

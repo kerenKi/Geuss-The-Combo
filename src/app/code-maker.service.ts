@@ -5,16 +5,16 @@ import { Color } from './models/Colors'
   providedIn: 'root'
 })
 export class CodeMakerService {
-  randomNumber(){
+  randomNumber() :number {
     return Math.floor(Math.random() * 6)
   }
-  generateCode(){
+  generateCode() :Color[] {
     const colors: Color[] = [Color.Red, Color.Yellow, Color.Green, Color.Blue, Color.Orange, Color.Purple] 
     const winningCode = [colors[this.randomNumber()],colors[this.randomNumber()],colors[this.randomNumber()],colors[this.randomNumber()]] 
     return winningCode
   }
 
-  calculateFeedback(winningCode, guessCode){
+  calculateFeedback(winningCode:Color[], guessCode:Color[]) :void{
     console.log(winningCode)
     console.log(guessCode)
   }

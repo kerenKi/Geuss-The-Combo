@@ -2,6 +2,7 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Color } from '../../app/models/Colors'
 import { Guesses } from '../../app/models/Guesses'
 import { CodeMakerService } from '../../app/code-maker.service'
+import { calculateFeedback } from '../../FeedbackCalculator'
 import Swal from 'sweetalert2'
 
 @Component({
@@ -19,16 +20,16 @@ export class ActiveGuessComponent implements OnInit {
 
   constructor(private service: CodeMakerService) { }
 
-  ngOnInit() {
+  ngOnInit():void {
     this.currentColor = Color.Gray
     
   }
 
-  changeColor(index) {
+  changeColor(index:number) {
     this.circles[index] = this.currentColor
   }
 
-  validateGuess(){
+  validateGuess():boolean {
     const filteredCircles:Color[] = this.circles.filter( circle => circle !== Color.Gray)
     if (filteredCircles.length === 4){
       return true
@@ -43,66 +44,15 @@ export class ActiveGuessComponent implements OnInit {
           popup: 'animated bounceInDown'
         }
       })
+      return false
     }
 
-  }
+  }  
 
-  calculateFeedback() {
-    const codeToCheck: Color[] = this.circles
-    let compareWinning = this.winningCode.map( (dot: Color, index: number) => {
-      let newDot = {
-        color: dot,
-        index: index,
-        hit: false,
-        correctColor: false
-      }
-      return newDot
-    }) 
-    //check for hits: correct color and place
-    codeToCheck.map((color:Color, index:number) => {
-      if( color === compareWinning[index].color) {
-        this.feedbackColors =[... this.feedbackColors, Color.Hit]
-        compareWinning[index].hit = true
-      }
-    })
-
-    //check for correct color wrong place
-    codeToCheck.map((color:Color, index:number) => {
-      if (color !== compareWinning[index].color) {
-        const correctColorIndex = compareWinning.findIndex( dot => dot.color === color && dot.index !== index && !dot.hit &&!dot.correctColor)
-
-        if( correctColorIndex !== -1) {
-          this.feedbackColors =[... this.feedbackColors, Color.CorrectColor]
-          compareWinning[correctColorIndex].correctColor = true
-        }
-      }
-    })
-
-    //complete the misses
-    switch(this.feedbackColors.length){
-      case 0:
-          this.feedbackColors =[... this.feedbackColors, Color.Miss, Color.Miss, Color.Miss, Color.Miss]
-        break;
-      case 1:
-          this.feedbackColors =[... this.feedbackColors, Color.Miss, Color.Miss, Color.Miss]
-        break;
-      case 2:
-          this.feedbackColors =[... this.feedbackColors, Color.Miss, Color.Miss]
-        break;
-      case 3:
-          this.feedbackColors =[... this.feedbackColors, Color.Miss]
-        break; 
-      default:
-        this.feedbackColors = [... this.feedbackColors]             
-    }
-    return this.feedbackColors
-  }
-
-  
-
-  onSubmit(){
-    if(this.validateGuess()){
-      this.calculateFeedback()
+  onSubmit():void {
+    if(this.validateGuess()) {
+      const feedback = calculateFeedback(this.winningCode, this.circles)
+      this.feedbackColors = feedback
       this.sendGuess.emit({
         colors: this.circles, 
         feedback: this.feedbackColors
@@ -110,9 +60,5 @@ export class ActiveGuessComponent implements OnInit {
       this.circles = [Color.Gray, Color.Gray, Color.Gray, Color.Gray]
       this.feedbackColors = []
     } 
-    
   }
-
-  
-
 }
