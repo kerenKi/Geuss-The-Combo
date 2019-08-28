@@ -1,7 +1,6 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Color } from '../../app/models/Colors'
 import { Guesses } from '../../app/models/Guesses'
-import { Dot } from '../../app/models/Dot'
 import { CodeMakerService } from '../../app/code-maker.service'
 import { calculateFeedback } from '../../FeedbackCalculator'
 import Swal from 'sweetalert2'
@@ -62,5 +61,4 @@ export class ActiveGuessComponent implements OnInit {
       this.feedbackColors = []
     } 
   }
-
 }
